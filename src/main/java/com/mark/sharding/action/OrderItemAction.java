@@ -1,14 +1,14 @@
 package com.mark.sharding.action;
 
 import com.mark.sharding.dao.OrderDao;
+import com.mark.sharding.dao.OrderItemDao;
 import com.mark.sharding.domain.Order;
+import com.mark.sharding.domain.OrderItem;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 import java.util.List;
 
 /**
@@ -18,21 +18,22 @@ import java.util.List;
  */
 @RestController
 @Slf4j
-@RequestMapping("/api/order")
-public class OrderAction {
+@RequestMapping("/api/orderItem")
+public class OrderItemAction {
 
     @Autowired
-    private OrderDao orderDao;
+    private OrderItemDao orderItemDao;
 
     @RequestMapping("/add")
     public Integer addOrder(){
         for(long i=0;i<10; i++){
-            Order order = new Order();
-            order.setId(i);
-            order.setName("name" + i);
-            order.setOrderId(i);
-            order.setUserId(i);
-            orderDao.addOrder(order);
+            OrderItem orderItem = new OrderItem();
+            orderItem.setId(i);
+            orderItem.setName("name" + i);
+            orderItem.setOrderId(i);
+            orderItem.setUserId(i);
+            Integer count = orderItemDao.addOrderItem(orderItem);
+            System.out.println(count);
         }
         return 1;
     }
@@ -40,8 +41,8 @@ public class OrderAction {
     @RequestMapping("/query")
     public Integer queryOrder(){
         for(long i=0;i<10; i++){
-            List<Order> orders = orderDao.queryOrder(i);
-            log.info(i + "#" + orders.toString());
+            List<OrderItem> orderItems = orderItemDao.queryOrderItem(i);
+            log.info(i + "#" + orderItems.toString());
         }
         return 1;
     }

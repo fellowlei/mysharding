@@ -1,4 +1,4 @@
-package com.mark.sharding.domain;
+package com.mark.sharding.util;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.shardingsphere.api.config.sharding.KeyGeneratorConfiguration;
