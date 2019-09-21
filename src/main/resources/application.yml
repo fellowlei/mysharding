@@ -2,6 +2,7 @@ logging:
   level:
     com.mark: DEBUG
     org.mybatis: DEBUG
+    org.apache.shardingsphere: DEBUG
 
 
 ##mybatis其他配置自行添加
