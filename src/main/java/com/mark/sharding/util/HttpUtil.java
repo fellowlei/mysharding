@@ -63,9 +63,10 @@ public class HttpUtil {
 
 
     public static void main(String[] args) throws Exception {
-        for(int i=0; i<10; i++){
+        for(int i=0; i<100; i++){
             String result = get("http://localhost:8080/api/order/query");
-            System.out.println(result);
+            System.out.println(i + "#" + result);
+            Thread.sleep(1000);
         }
     }
 }
