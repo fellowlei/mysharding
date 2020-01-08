@@ -46,7 +46,7 @@ public class MyImportRegistrator implements ImportBeanDefinitionRegistrar, Envir
         beanDefinitionRegistry.registerBeanDefinition("myBeanFactoryPostProcessor",beanDefinition);
         // 注入beanPostProcessor
         GenericBeanDefinition beanPostProcessor  = new GenericBeanDefinition();
-        beanPostProcessor .setBeanClass(MyBeanPostProcessor.class);
+        beanPostProcessor.setBeanClass(MyBeanPostProcessor.class);
         beanDefinitionRegistry.registerBeanDefinition("myBeanPostProcessor",beanPostProcessor );
 
     }
